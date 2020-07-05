@@ -24,6 +24,9 @@ class CommentActivity : AppCompatActivity(), CommentAdapter.ViewHolderDatos.OnAd
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_comment)
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        title = "Comentarios"
+
         val post: PostResponse = Gson().fromJson(intent.getStringExtra(KEY_POST), PostResponse::class.java)
         val listComments = post.comment
 
@@ -36,5 +39,10 @@ class CommentActivity : AppCompatActivity(), CommentAdapter.ViewHolderDatos.OnAd
 
     override fun onItemClickListener(item: Comment) {
         Toast.makeText(this, "Comentario de ${item.user_name}", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 }

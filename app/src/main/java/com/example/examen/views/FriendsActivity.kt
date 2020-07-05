@@ -29,6 +29,9 @@ class FriendsActivity : AppCompatActivity(), FriendsAdapter.ViewHolderDatos.OnAd
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_friends)
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        title = "Amigos"
+
         adapter = FriendsAdapter(ArrayList(), this)
         layoutManager = LinearLayoutManager(this@FriendsActivity)
         recyclerView_friends.layoutManager = layoutManager
@@ -68,5 +71,10 @@ class FriendsActivity : AppCompatActivity(), FriendsAdapter.ViewHolderDatos.OnAd
     override fun onItemClickListener(item: UserResponse) {
         val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+item.phone))
         startActivity(intent)
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 }

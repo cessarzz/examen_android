@@ -27,6 +27,9 @@ class FeedActivity : AppCompatActivity(), FeedAdapter.ViewHolderDatos.OnAdapterL
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_feed)
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        title = "Feed"
+
         adapter = FeedAdapter(ArrayList(), this)
         layoutManager = LinearLayoutManager(this@FeedActivity)
         recyclerView.layoutManager = layoutManager
@@ -67,6 +70,11 @@ class FeedActivity : AppCompatActivity(), FeedAdapter.ViewHolderDatos.OnAdapterL
         val intent = Intent(this, CommentActivity::class.java)
         intent.putExtra(CommentActivity.KEY_POST, Gson().toJson(item, PostResponse::class.java))
         startActivity(intent)
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 
 }
