@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Examen</string>
+    <string name="likes">Likes</string>
+    <string name="posts">Posts</string>
+    <string name="shares">Shares</string>
+    <string name="friends">Friends</string>
+    <string name="ir_al_feed">Ir al feed</string>
+    <string name="ir_a_amigos">Ir a amigos</string>
+    <string name="comments">Comments</string>
 </resources>
