@@ -5,11 +5,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.examen.R
-import com.example.examen.dataclass.Comment
+import com.example.examen.dataclass.UserResponse
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_list.view.*
 
-class CommentAdapter(private var listaItems:List<Comment>, private val listener: ViewHolderDatos.OnAdapterListener) : RecyclerView.Adapter<CommentAdapter.ViewHolderDatos>() {
+class FriendsAdapter(private var listaItems:List<UserResponse>, private val listener: ViewHolderDatos.OnAdapterListener) : RecyclerView.Adapter<FriendsAdapter.ViewHolderDatos>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderDatos {
         val vista = LayoutInflater.from(parent.context).inflate(R.layout.item_list, parent, false)
@@ -21,27 +21,27 @@ class CommentAdapter(private var listaItems:List<Comment>, private val listener:
     }
 
     override fun onBindViewHolder(holder: ViewHolderDatos, position: Int) {
-        val comment = this.listaItems[position]
-        holder.bind(comment)
-        holder.itemView.setOnClickListener{listener.onItemClickListener(comment)}
+        val user = this.listaItems[position]
+        holder.bind(user)
+        holder.itemView.setOnClickListener{listener.onItemClickListener(user)}
     }
 
-    fun updateList(list:List<Comment>) {
+    fun updateList(list:List<UserResponse>) {
         this.listaItems = list
         this.notifyDataSetChanged()
     }
 
     class ViewHolderDatos(val view: View) : RecyclerView.ViewHolder(view) {
 
-        fun bind (comment: Comment) {
-            if(comment.user_image.isNotBlank()) {
-                Picasso.get().load(comment.user_image).into(view.imv_item_userImage)
+        fun bind (user: UserResponse) {
+            if(user.image.isNotBlank()) {
+                Picasso.get().load(user.image).into(view.imv_item_userImage)
             }
-            view.txv_body.text  = comment.comment
+            view.txv_body.text  = "${user.name} ${user.lastname}"
         }
 
         interface OnAdapterListener {
-            fun onItemClickListener( item: Comment)
+            fun onItemClickListener( item: UserResponse)
         }
 
     }

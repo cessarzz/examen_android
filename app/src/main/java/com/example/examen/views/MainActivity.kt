@@ -26,6 +26,11 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, FeedActivity::class.java)
             startActivity(intent)
         }
+
+        btn_friends.setOnClickListener {
+            val intent = Intent(this, FriendsActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun callService() {
