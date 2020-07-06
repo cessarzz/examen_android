@@ -35,6 +35,18 @@ class CommentActivity : AppCompatActivity(), CommentAdapter.ViewHolderDatos.OnAd
         recyclerView_comment.layoutManager = layoutManager
         recyclerView_comment.adapter = adapter
 
+        btn_comment.setOnClickListener{
+            val text = et_comment.text.toString()
+            val comment = Comment(
+                100,
+                "@Cesar",
+                "https://www.lavanguardia.com/r/GODO/LV/p5/WebSite/2018/11/17/Recortada/img_fmartinez_20181116-160243_imagenes_lv_otras_fuentes_mickey_mouse-kSDB--992x558@LaVanguardia-Web.jpg",
+                text
+            )
+            listComments.toMutableList().add(comment)
+            adapter.notifyDataSetChanged()
+        }
+
     }
 
     override fun onItemClickListener(item: Comment) {
