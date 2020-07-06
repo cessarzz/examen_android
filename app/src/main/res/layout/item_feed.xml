@@ -3,22 +3,23 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:elevation="@dimen/margin_small"
-    android:layout_marginLeft="@dimen/margin_app"
-    android:layout_marginRight="@dimen/margin_app"
+    android:elevation="@dimen/margin_app"
     android:layout_marginTop="@dimen/margin_small"
     android:layout_marginBottom="@dimen/margin_small">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="@dimen/margin_small">
+        android:paddingTop="@dimen/margin_small"
+        android:paddingBottom="@dimen/margin_small"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:layout_marginRight="@dimen/margin_small"
             android:orientation="horizontal">
 
             <de.hdodenhof.circleimageview.CircleImageView
@@ -47,12 +48,16 @@
         <TextView
             android:id="@+id/txv_item_body"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:layout_marginRight="@dimen/margin_small"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:layout_marginRight="@dimen/margin_small"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
