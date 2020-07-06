@@ -44,6 +44,7 @@ class CommentActivity : AppCompatActivity(), CommentAdapter.ViewHolderDatos.OnAd
                 text
             )
             listComments.toMutableList().add(comment)
+            adapter.updateList(listComments)
             adapter.notifyDataSetChanged()
         }
 
